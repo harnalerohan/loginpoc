@@ -43,6 +43,7 @@ const authCodeUrlParameters = {
 };
 
 app.get('/login', async (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
     const authCodeUrl = await pca.getAuthCodeUrl(authCodeUrlParameters);
     res.redirect(authCodeUrl);
 });
